@@ -24,14 +24,10 @@ public class Foothill
 		
 		outerloop:
 		for(int i = 0; i < dataSet.size(); i++){
-			
 			curNumber = dataSet.get(i);
-			//System.out.println("i:" + i + " " + curNumber);
+			int maxSize = choices.size();
 			
-			for(int k = 0; k < choices.size(); k++){
-				
-				//System.out.println("k:" + k + " " + choices.get(k).getSum());
-				
+			for(int k = 0; k < maxSize ; k++){
 				if (choices.get(k).getSum() + curNumber <= target)
 					choices.add(choices.get(k).addItem(i));
 				
