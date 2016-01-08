@@ -6,11 +6,10 @@ public class Foothill
 	// -------  main --------------
 	public static void main(String[] args) throws Exception
 	{
+		// build the dataset
 		int target = 72;
 		ArrayList<Integer> dataSet = new ArrayList<Integer>();
 		ArrayList<Sublist> choices = new ArrayList<Sublist>();
-		//int k, j, numSets, max, kBest, masterSum;
-		//boolean foundPerfect;
 
 		dataSet.add(2); dataSet.add(12); dataSet.add(22);
 		dataSet.add(5); dataSet.add(15); dataSet.add(25);
@@ -20,17 +19,23 @@ public class Foothill
 		choices.add(new Sublist(dataSet));
 		
 		int curNumber;
+		int curChoicesNum;
 		int kBest = 0;
 		
+		// outter loop to go thru all possible numbers
 		outerloop:
 		for(int i = 0; i < dataSet.size(); i++){
 			curNumber = dataSet.get(i);
-			int maxSize = choices.size();
+			curChoicesNum = choices.size();
 			
-			for(int k = 0; k < maxSize ; k++){
+			// inner loop to go thru all existing choices
+			for(int k = 0; k < curChoicesNum ; k++){
+				
+				// check if new sum within the target
 				if (choices.get(k).getSum() + curNumber <= target)
 					choices.add(choices.get(k).addItem(i));
 				
+				// check if new sum meet the target
 				if (choices.get(k).getSum() + curNumber == target)
 					break outerloop;
 			}
@@ -40,13 +45,25 @@ public class Foothill
 		int tempSum = Integer.MIN_VALUE;
 		for(int k = 0; k < choices.size(); k++){
 			curNumber = choices.get(k).getSum();
-			if (curNumber > tempSum)
-			{
+			if (curNumber > tempSum){
 				tempSum = curNumber;
 				kBest = k;
 			}
 		}
 		
+		// output the result
 		choices.get(kBest).showSublist();	
     }
 }
+
+/************ Run ***************
+Sublist------------------
+Sum: 72
+ array[0] = 2
+ array[2] = 22
+ array[3] = 5
+ array[4] = 15
+ array[6] = 9
+ array[7] = 19
+*/
+

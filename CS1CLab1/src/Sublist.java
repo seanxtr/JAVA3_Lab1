@@ -1,3 +1,6 @@
+/*
+ * class sublist used to store indices of selected numbers
+ */
 import java.util.ArrayList;
 
 class Sublist implements Cloneable
@@ -6,7 +9,9 @@ class Sublist implements Cloneable
    private ArrayList<Integer> originalObjects;
    private ArrayList<Integer> indices;
    
-   // constructor creates an empty Sublist (no indices)
+   /*
+    * constructor creates an empty Sublist (no indices)
+    */
    public Sublist(ArrayList<Integer> orig) 
    {
       sum = 0;
@@ -14,12 +19,18 @@ class Sublist implements Cloneable
       indices = new ArrayList<Integer>();
    }
    
+   /*
+    * getter for sum
+    */
    public int getSum() 
    { 
 	   return sum;
    }
    
-   // I have done the clone() for you, since you will need clone() inside addItem().
+   /*
+    * deep copy of the current class(non-Javadoc)
+    * @see java.lang.Object#clone()
+    */
    @SuppressWarnings("unchecked")
    public Object clone() throws CloneNotSupportedException
    {
@@ -31,6 +42,9 @@ class Sublist implements Cloneable
       return newObject;
    }
    
+   /*
+    * Add new indices to a copy of current class
+    */
    public Sublist addItem(int indexOfItemToAdd) throws CloneNotSupportedException
    {
 	   Sublist newList = (Sublist)this.clone();
@@ -44,6 +58,9 @@ class Sublist implements Cloneable
 	   return newList;
    }
    
+   /*
+    * print out class information
+    */
    public void showSublist()
    {
 	   System.out.println("Sublist------------------");
