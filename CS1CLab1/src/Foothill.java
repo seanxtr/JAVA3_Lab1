@@ -17,11 +17,37 @@ public class Foothill
 		dataSet.add(9); dataSet.add(19); dataSet.add(29);
 
 		// code supplied by student
-		choices.add(new Sublist(new ArrayList<Integer>()));
+		choices.add(new Sublist(dataSet));
 		
+		int curNumber;
+		int kBest = 0;
+		
+		outerloop:
 		for(int i = 0; i < dataSet.size(); i++){
+			
+			curNumber = dataSet.get(i);
+			//System.out.println("i:" + i + " " + curNumber);
+			
 			for(int k = 0; k < choices.size(); k++){
-				if (choices[k].
+				
+				//System.out.println("k:" + k + " " + choices.get(k).getSum());
+				
+				if (choices.get(k).getSum() + curNumber <= target)
+					choices.add(choices.get(k).addItem(i));
+				
+				if (choices.get(k).getSum() + curNumber == target)
+					break outerloop;
+			}
+		}
+		
+		// find the index of choice of largest sum
+		int tempSum = Integer.MIN_VALUE;
+		for(int k = 0; k < choices.size(); k++){
+			curNumber = choices.get(k).getSum();
+			if (curNumber > tempSum)
+			{
+				tempSum = curNumber;
+				kBest = k;
 			}
 		}
 		

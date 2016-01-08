@@ -31,7 +31,7 @@ class Sublist implements Cloneable
       return newObject;
    }
    
-   private Sublist addItem( int indexOfItemToAdd ) throws CloneNotSupportedException
+   public Sublist addItem(int indexOfItemToAdd) throws CloneNotSupportedException
    {
 	   Sublist newList = (Sublist)this.clone();
 	   
@@ -44,7 +44,7 @@ class Sublist implements Cloneable
 	   return newList;
    }
    
-   private void showSublist()
+   public void showSublist()
    {
 	   System.out.println("Sublist------------------");
 	   System.out.printf("Sum: %d%n", this.sum);
