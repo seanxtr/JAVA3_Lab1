@@ -1,13 +1,18 @@
+/*
+ * Program that calculates subset of numbers sums up to meet
+ * the target value
+ * 
+ * Written by Tianrong Xiao, 2016-01-12
+ * for CS1C Winter 2016 Foothill college
+ */
 import java.util.*;
 
-//------------------------------------------------------
 public class Foothill
 {
-	// -------  main --------------
 	public static void main(String[] args) throws Exception
 	{
 		// build the dataset
-		int target = 72;
+		int target = 125;
 		ArrayList<Integer> dataSet = new ArrayList<Integer>();
 		ArrayList<Sublist> choices = new ArrayList<Sublist>();
 
@@ -21,6 +26,8 @@ public class Foothill
 		int curNumber;
 		int curChoicesNum;
 		int kBest = 0;
+		
+		System.out.printf("Target: %d%n", target);
 		
 		// outter loop to go thru all possible numbers
 		outerloop:
@@ -57,6 +64,7 @@ public class Foothill
 }
 
 /************ Run ***************
+Target: 72
 Sublist------------------
 Sum: 72
  array[0] = 2
@@ -67,3 +75,47 @@ Sum: 72
  array[7] = 19
 */
 
+/************ Run ***************
+Target: 150
+Sublist------------------
+Sum: 138
+ array[0] = 2
+ array[1] = 12
+ array[2] = 22
+ array[3] = 5
+ array[4] = 15
+ array[5] = 25
+ array[6] = 9
+ array[7] = 19
+ array[8] = 29
+*/
+
+/************ Run ***************
+Target: 50
+Sublist------------------
+Sum: 50
+ array[0] = 2
+ array[1] = 12
+ array[2] = 22
+ array[3] = 5
+ array[6] = 9
+*/
+
+/************ Run ***************
+Target: 0
+Sublist------------------
+Sum: 0
+*/
+
+/************ Run ***************
+Target: 125
+Sublist------------------
+Sum: 124
+ array[0] = 2
+ array[1] = 12
+ array[2] = 22
+ array[4] = 15
+ array[5] = 25
+ array[7] = 19
+ array[8] = 29
+*/
