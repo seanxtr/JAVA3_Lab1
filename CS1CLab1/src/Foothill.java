@@ -3,7 +3,7 @@
  * the target value
  * 
  * Written by Tianrong Xiao, 2016-01-12
- * for CS1C Winter 2016 Foothill college
+ * for Lab1 partA of CS1C Winter 2016 Foothill college
  */
 import java.util.*;
 
